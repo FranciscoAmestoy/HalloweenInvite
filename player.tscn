@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://cc4jujma05fsl"]
+
+[ext_resource type="Texture2D" uid="uid://cpn3808egut81" path="res://Assets/Characters/bogan_sprites.png" id="1_psp13"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7gn6"]
+atlas = ExtResource("1_psp13")
+region = Rect2(0, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fupm6"]
+atlas = ExtResource("1_psp13")
+region = Rect2(16, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h5rp"]
+atlas = ExtResource("1_psp13")
+region = Rect2(32, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fi3k"]
+atlas = ExtResource("1_psp13")
+region = Rect2(48, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc3po"]
+atlas = ExtResource("1_psp13")
+region = Rect2(64, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrrd4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7gn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fupm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h5rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fi3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc3po")
+}],
+"loop": true,
+"name": &"Testchar_Idle_down",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xrrd4")
+animation = &"Testchar_Idle_down"
+autoplay = "Testchar_Idle_down"
+frame_progress = 0.0042571

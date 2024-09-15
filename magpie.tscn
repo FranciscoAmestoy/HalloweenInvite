@@ -1,0 +1,122 @@
+[gd_scene load_steps=17 format=3 uid="uid://btb5j262ppppr"]
+
+[ext_resource type="Script" path="res://magpie.gd" id="1_2kdvr"]
+[ext_resource type="Texture2D" uid="uid://pl7lrnl3j0lv" path="res://Assets/Characters/magpie.png" id="1_6v6n2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iaqpa"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0372a"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jes2w"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh0x1"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rwqp"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkglq"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bmol"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnyla"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fo3h"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enogn"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxy06"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st3p0"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8wlx7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iaqpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0372a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jes2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh0x1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rwqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkglq")
+}],
+"loop": true,
+"name": &"magpie_fly_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bmol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnyla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fo3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enogn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxy06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st3p0")
+}],
+"loop": true,
+"name": &"magpie_fly_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h00p6"]
+radius = 2.0
+height = 10.0
+
+[node name="magpie" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_2kdvr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_8wlx7")
+animation = &"magpie_fly_up"
+autoplay = "magpie_fly_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_h00p6")

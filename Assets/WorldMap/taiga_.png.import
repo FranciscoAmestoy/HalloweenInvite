@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqdvsuaryjm0t"
-path="res://.godot/imported/taiga_.png-ad392b62aaf2c705704eaee37e349404.ctex"
+path="res://.godot/imported/taiga_.png-c9b7f1a8656f125f50d831b62be80633.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://taiga_.png"
-dest_files=["res://.godot/imported/taiga_.png-ad392b62aaf2c705704eaee37e349404.ctex"]
+source_file="res://Assets/WorldMap/taiga_.png"
+dest_files=["res://.godot/imported/taiga_.png-c9b7f1a8656f125f50d831b62be80633.ctex"]
 
 [params]
 

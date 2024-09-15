@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqdvsuaryjm0t"
-path="res://.godot/imported/taiga_.png-c9b7f1a8656f125f50d831b62be80633.ctex"
+uid="uid://pl7lrnl3j0lv"
+path="res://.godot/imported/magpie.png-d844398172a4156603234ad1295db091.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/WorldMap/taiga_.png"
-dest_files=["res://.godot/imported/taiga_.png-c9b7f1a8656f125f50d831b62be80633.ctex"]
+source_file="res://Assets/Characters/magpie.png"
+dest_files=["res://.godot/imported/magpie.png-d844398172a4156603234ad1295db091.ctex"]
 
 [params]
 

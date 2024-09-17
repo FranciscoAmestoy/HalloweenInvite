@@ -223,7 +223,7 @@ tile_set = SubResource("TileSet_0cc5t")
 
 [node name="TileMapTreesFiller" type="TileMapLayer" parent="TileMapGrass"]
 position = Vector2(64, 192)
-tile_map_data = PackedByteArray("AAABAP//AAADAAEAAAACAP//AAADAAEAAAADAP//AAADAAEAAAAEAP//AAADAAEAAAAFAP//AAADAAEAAAAGAP//AAADAAEAAAAHAP//AAADAAEAAAAIAP//AAADAAEAAAAJAP//AAADAAEAAAAKAP//AAADAAEAAAALAP//AAADAAEAAAAMAP//AAADAAEAAAANAP//AAADAAEAAAAOAP//AAADAAEAAAAPAP//AAADAAEAAAAQAP//AAABAAEAAAARAP//AAABAAEAAAASAP//AAABAAEAAAATAP//AAABAAEAAAAUAP//AAABAAEAAAAVAP//AAABAAEAAAAWAP//AAABAAEAAAAXAP//AAABAAEAAAAYAP//AAABAAEAAAAZAP//AAABAAEAAAAaAP//AAABAAEAAAAbAP//AAABAAEAAAAcAP//AAABAAEAAAAdAP//AAABAAEAAAAeAP//AAABAAEAAAAfAP//AAABAAEAAAAgAP//AAADAAEAAAAhAP//AAADAAEAAAAiAP//AAADAAEAAAAjAP//AAADAAEAAAAkAP//AAADAAEAAAAlAP//AAADAAEAAAAmAP//AAADAAEAAAAnAP//AAADAAEAAAAoAP//AAADAAEAAAApAP//AAADAAEAAAAqAP//AAADAAEAAAArAP//AAADAAEAAAAsAP//AAADAAEAAAAtAP//AAADAAEAAAAuAP//AAADAAEAAAAvAP//AAADAAEAAAAwAP//AAABAAEAAAAxAP//AAABAAEAAAAyAP//AAABAAEAAAAzAP//AAABAAEAAAA0AP//AAABAAEAAAA1AP//AAABAAEAAAA2AP//AAABAAEAAAA3AP//AAABAAEAAAA4AP//AAABAAEAAAA5AP//AAABAAEAAAA6AP//AAABAAEAAAA7AP//AAABAAEAAAA8AP//AAABAAEAAAA9AP//AAABAAEAAAA+AP//AAABAAEAAAA/AP//AAABAAEAAABAAP//AAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAACAP//AAADAAEAAAADAP//AAADAAEAAAAEAP//AAADAAEAAAAFAP//AAADAAEAAAAGAP//AAADAAEAAAAHAP//AAADAAEAAAAIAP//AAADAAEAAAAJAP//AAADAAEAAAAKAP//AAADAAEAAAALAP//AAADAAEAAAAMAP//AAADAAEAAAANAP//AAADAAEAAAAOAP//AAADAAEAAAAPAP//AAADAAEAAAAQAP//AAABAAEAAAARAP//AAABAAEAAAASAP//AAABAAEAAAATAP//AAABAAEAAAAUAP//AAABAAEAAAAVAP//AAABAAEAAAAWAP//AAABAAEAAAAXAP//AAABAAEAAAAYAP//AAABAAEAAAAZAP//AAABAAEAAAAaAP//AAABAAEAAAAbAP//AAABAAEAAAAcAP//AAABAAEAAAAdAP//AAABAAEAAAAeAP//AAABAAEAAAAfAP//AAABAAEAAAAgAP//AAADAAEAAAAhAP//AAADAAEAAAAiAP//AAADAAEAAAAjAP//AAADAAEAAAAkAP//AAADAAEAAAAlAP//AAADAAEAAAAmAP//AAADAAEAAAAnAP//AAADAAEAAAAoAP//AAADAAEAAAApAP//AAADAAEAAAAqAP//AAADAAEAAAArAP//AAADAAEAAAAsAP//AAADAAEAAAAtAP//AAADAAEAAAAuAP//AAADAAEAAAAvAP//AAADAAEAAAAwAP//AAABAAEAAAAxAP//AAABAAEAAAAyAP//AAABAAEAAAAzAP//AAABAAEAAAA0AP//AAABAAEAAAA1AP//AAABAAEAAAA2AP//AAABAAEAAAA3AP//AAABAAEAAAA4AP//AAABAAEAAAA5AP//AAABAAEAAAA6AP//AAABAAEAAAA7AP//AAABAAEAAAA8AP//AAABAAEAAAA9AP//AAABAAEAAAA+AP//AAABAAEAAAA/AP//AAABAAEAAABAAP//AAABAAEAAAABAP//AAADAAEAAAA=")
 tile_set = SubResource("TileSet_7nj8k")
 
 [node name="TileMapTreesOuter" type="TileMapLayer" parent="TileMapGrass"]
@@ -253,42 +253,24 @@ position = Vector2(44, 40)
 
 [node name="Camera2D" type="Camera2D" parent="TileMapGrass/TileMapTreesFiller2/player"]
 limit_left = 0
-limit_top = 0
+limit_top = -7
 limit_right = 1025
 limit_bottom = 1040
 
 [node name="magpie" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(78, 42)
+position = Vector2(674, 358)
 
 [node name="magpie2" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(74, 86)
+position = Vector2(399, 362)
 
 [node name="magpie3" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(100, 62)
+position = Vector2(921, 106)
 
 [node name="magpie4" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(130, 42)
+position = Vector2(152, 359)
 
 [node name="magpie5" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(126, 86)
+position = Vector2(157, 80)
 
 [node name="magpie6" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(152, 62)
-
-[node name="magpie7" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(89, 126)
-
-[node name="magpie8" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(85, 170)
-
-[node name="magpie9" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(111, 146)
-
-[node name="magpie10" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(141, 126)
-
-[node name="magpie11" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(137, 170)
-
-[node name="magpie12" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(163, 146)
+position = Vector2(663, 127)

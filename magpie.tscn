@@ -1,7 +1,35 @@
-[gd_scene load_steps=17 format=3 uid="uid://btb5j262ppppr"]
+[gd_scene load_steps=26 format=3 uid="uid://btb5j262ppppr"]
 
 [ext_resource type="Script" path="res://magpie.gd" id="1_2kdvr"]
 [ext_resource type="Texture2D" uid="uid://pl7lrnl3j0lv" path="res://Assets/Characters/magpie.png" id="1_6v6n2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snbav"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q204i"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fgkc"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rx6d"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvrjy"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0j3w"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3lhf"]
+atlas = ExtResource("1_6v6n2")
+region = Rect2(64, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iaqpa"]
 atlas = ExtResource("1_6v6n2")
@@ -55,6 +83,32 @@ region = Rect2(32, 32, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_snbav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q204i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fgkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rx6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvrjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0j3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3lhf")
+}],
+"loop": true,
+"name": &"magpie_fight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_iaqpa")
 }, {
 "duration": 1.0,
@@ -104,6 +158,12 @@ animations = [{
 radius = 2.0
 height = 10.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7bwvf"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8a0n7"]
+radius = 44.1022
+
 [node name="magpie" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -114,9 +174,28 @@ script = ExtResource("1_2kdvr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8wlx7")
-animation = &"magpie_fly_up"
+animation = &"magpie_fight"
 autoplay = "magpie_fly_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_h00p6")
+
+[node name="magpie_hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="magpie_hitbox"]
+shape = SubResource("CircleShape2D_7bwvf")
+
+[node name="territory" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="territory"]
+shape = SubResource("CircleShape2D_8a0n7")
+
+[connection signal="body_entered" from="magpie_hitbox" to="." method="_on_magpie_hitbox_body_entered"]
+[connection signal="body_exited" from="magpie_hitbox" to="." method="_on_magpie_hitbox_body_exited"]
+[connection signal="body_entered" from="territory" to="." method="_on_territory_body_entered"]
+[connection signal="body_exited" from="territory" to="." method="_on_territory_body_exited"]

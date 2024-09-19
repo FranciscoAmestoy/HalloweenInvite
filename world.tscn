@@ -270,7 +270,7 @@ position = Vector2(921, 106)
 position = Vector2(152, 359)
 
 [node name="magpie5" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(157, 80)
+position = Vector2(89, 69)
 
 [node name="magpie6" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
 position = Vector2(663, 127)

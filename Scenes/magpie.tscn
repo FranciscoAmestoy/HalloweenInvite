@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://btb5j262ppppr"]
 
-[ext_resource type="Script" path="res://magpie.gd" id="1_2kdvr"]
+[ext_resource type="Script" path="res://Scripts/magpie.gd" id="1_2kdvr"]
 [ext_resource type="Texture2D" uid="uid://pl7lrnl3j0lv" path="res://Assets/Characters/magpie.png" id="1_6v6n2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_snbav"]

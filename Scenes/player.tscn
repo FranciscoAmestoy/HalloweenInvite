@@ -1,7 +1,7 @@
 [gd_scene load_steps=50 format=3 uid="uid://cc4jujma05fsl"]
 
 [ext_resource type="Texture2D" uid="uid://cpn3808egut81" path="res://Assets/Characters/bogan_sprites.png" id="1_psp13"]
-[ext_resource type="Script" path="res://player.gd" id="1_pwakn"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_pwakn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ejjqy"]
 atlas = ExtResource("1_psp13")

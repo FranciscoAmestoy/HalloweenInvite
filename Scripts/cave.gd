@@ -5,8 +5,8 @@ var current_scene = "cave"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	if Global.has_stick:
+		$stick.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,3 +24,4 @@ func _on_world_body_entered(body):
 		change_scene = true
 		change_scenes()
 		
+	

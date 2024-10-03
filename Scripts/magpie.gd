@@ -66,7 +66,7 @@ func _physics_process(delta):
 	if player_in_range:
 		damage_timer += delta
 	if damage_timer >= damage_interval:
-		player.health -= 10  # Reduce health
+		Global.health -= 10  # Reduce health
 		damage_timer = 0.0
 
 		
@@ -120,7 +120,10 @@ func pick_random_direction():
 func _on_territory_body_entered(body):
 	if body.is_in_group("Player"):
 		player = body
-		swoop = true
+		if Global.has_stick:  # Check the flag
+			swoop = false  # Fly away
+		else:
+			swoop = true  # Attack
 
 func _on_territory_body_exited(body):
 	if body.is_in_group("Player"):

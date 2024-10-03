@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dfduvhqdt5nbe"]
+[gd_scene load_steps=16 format=4 uid="uid://dfduvhqdt5nbe"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_r7tiy"]
 [ext_resource type="Texture2D" uid="uid://8gsl15dd0ohp" path="res://Assets/WorldMap/fantasy_ [version 2.0]/taiga_/taiga_ [resources].png" id="2_i6dxc"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://517h3omjhnts" path="res://Assets/WorldMap/fantasy_ [version 2.0]/swamp_/puddle_.png" id="3_q3mck"]
 [ext_resource type="Texture2D" uid="uid://bqdvsuaryjm0t" path="res://Assets/WorldMap/fantasy_ [version 2.0]/taiga_/taiga_.png" id="4_exsvq"]
 [ext_resource type="PackedScene" uid="uid://btb5j262ppppr" path="res://Scenes/magpie.tscn" id="5_31pxf"]
+[ext_resource type="PackedScene" uid="uid://dxrd847mdvhs1" path="res://Scenes/inventory.tscn" id="6_u1x46"]
+[ext_resource type="AudioStream" uid="uid://dmyj7purrnvj1" path="res://Assets/Music/main.mp3" id="7_38ebb"]
+[ext_resource type="PackedScene" uid="uid://bj1lujydqjyvq" path="res://Scenes/health_potion.tscn" id="7_saro1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gv6qx"]
 texture = ExtResource("3_q3mck")
@@ -271,6 +274,8 @@ limit_top = -7
 limit_right = 1025
 limit_bottom = 1040
 
+[node name="Inventory" parent="TileMapGrass/TileMapTreesFiller2/player" instance=ExtResource("6_u1x46")]
+
 [node name="magpie" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
 position = Vector2(674, 358)
 
@@ -289,10 +294,23 @@ position = Vector2(220, 84)
 [node name="magpie6" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
 position = Vector2(663, 127)
 
+[node name="health_potion" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("7_saro1")]
+position = Vector2(107, 100)
+scale = Vector2(0.5, 0.5)
+
+[node name="health_potion2" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("7_saro1")]
+position = Vector2(140, 101)
+scale = Vector2(0.5, 0.5)
+
 [node name="cave" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cave"]
 position = Vector2(128, 58)
 shape = SubResource("RectangleShape2D_q6pyt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_38ebb")
+volume_db = -18.159
+autoplay = true
 
 [connection signal="body_entered" from="cave" to="." method="_on_cave_body_entered"]

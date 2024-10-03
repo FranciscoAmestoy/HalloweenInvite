@@ -6,7 +6,6 @@ var speed = 100 # Movement speed of the player
 var last_direction = Vector2.RIGHT # Default direction the player is facing (right)
 var animated_sprite # Reference to the animated sprite node
 var enemy_in_range = false # Flag to track if an enemy is within range
-var health = 100
 var is_dead = false # Flag to track if the player is dead
 var is_attacking = false
 var attack_timer = 0.0
@@ -31,8 +30,8 @@ func _physics_process(delta):
 	
 func update_health():
 	var healthbar = $healthbar
-	healthbar.value = health
-	if health >= 100:
+	healthbar.value = Global.health
+	if Global.health >= 100:
 		healthbar.visible = false
 	else: 
 		healthbar.visible = true
@@ -80,18 +79,21 @@ func _input(event):
 	if event.is_action_pressed("ui_select"): # Assuming "ui_select" is mapped to the space bar
 		is_attacking = true
 		attack_timer = 0.0
+		$AudioStreamPlayer2D.play()
 
 func die():
-	if health <= 0 and not is_dead:
+	if Global.health <= 0 and not is_dead:
 		is_dead = true
 		animated_sprite.play("die")
+
+
 
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("Enemy"):
 		enemy_in_range = true # Set enemy detection flag to true
 		print("Getting Swooped!") # Debug message for when the enemy enters
 		#health = health - 10
-		print(health)
+		print(Global.health)
 		
 # Function called when a body exits the player's hitbox (e.g., enemy leaves detection range)
 func _on_hitbox_body_exited(body):
@@ -102,4 +104,4 @@ func _on_hitbox_body_exited(body):
 
 func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite.animation == "die":
-		queue_free()
+			get_tree().change_scene_to_file("res://Scenes/gameover.tscn")

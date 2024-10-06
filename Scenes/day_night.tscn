@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bprfw287m264v"]
+
+[ext_resource type="Script" path="res://Scripts/day_night.gd" id="1_3mhg5"]
+
+[node name="day_night" type="CanvasModulate"]
+color = Color(0.114837, 0.357867, 0.259563, 1)
+script = ExtResource("1_3mhg5")

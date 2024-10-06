@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://firhh3coiu64"]
+[gd_scene load_steps=10 format=3 uid="uid://firhh3coiu64"]
 
 [ext_resource type="Texture2D" uid="uid://bp67wqklu6gyw" path="res://Assets/Characters/flammin stick.png" id="1_rta8e"]
 [ext_resource type="Script" path="res://Scripts/stick.gd" id="1_t4ndo"]
+[ext_resource type="Texture2D" uid="uid://xmkmqywql5de" path="res://Assets/Characters/star_01.png" id="3_mcep6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7hrcf"]
 radius = 5.0
@@ -49,10 +50,16 @@ script = ExtResource("1_t4ndo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_7hrcf")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
 position = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_81s4q")
 autoplay = "default"
 frame_progress = 0.839344
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.976471, 0.584314, 0.129412, 1)
+energy = 0.82
+shadow_enabled = true
+texture = ExtResource("3_mcep6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dfduvhqdt5nbe"]
+[gd_scene load_steps=17 format=4 uid="uid://dfduvhqdt5nbe"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_r7tiy"]
 [ext_resource type="Texture2D" uid="uid://8gsl15dd0ohp" path="res://Assets/WorldMap/fantasy_ [version 2.0]/taiga_/taiga_ [resources].png" id="2_i6dxc"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dxrd847mdvhs1" path="res://Scenes/inventory.tscn" id="6_u1x46"]
 [ext_resource type="AudioStream" uid="uid://dmyj7purrnvj1" path="res://Assets/Music/main.mp3" id="7_38ebb"]
 [ext_resource type="PackedScene" uid="uid://bj1lujydqjyvq" path="res://Scenes/health_potion.tscn" id="7_saro1"]
+[ext_resource type="PackedScene" uid="uid://bprfw287m264v" path="res://Scenes/day_night.tscn" id="10_jm3vr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gv6qx"]
 texture = ExtResource("3_q3mck")
@@ -312,5 +313,8 @@ shape = SubResource("RectangleShape2D_q6pyt")
 stream = ExtResource("7_38ebb")
 volume_db = -18.159
 autoplay = true
+
+[node name="day_night" parent="." instance=ExtResource("10_jm3vr")]
+color = Color(0.088673, 0.343987, 0.388286, 1)
 
 [connection signal="body_entered" from="cave" to="." method="_on_cave_body_entered"]

@@ -11,7 +11,7 @@ func _on_cave_body_entered(body):
 	if body.is_in_group("Player"):
 		Global.last_world_position = $TileMapGrass/TileMapTreesFiller2/player.position
 		change_scene = true
-		change_scenes()
+		call_deferred("change_scenes")  # Defer the scene change
 
 func change_scenes():
 	if change_scene == true:

@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd5o0hlpf0he4"]
+
+[ext_resource type="Script" path="res://Scripts/gameover.gd" id="1_lk1c7"]
+[ext_resource type="AudioStream" uid="uid://cfta2aqown17x" path="res://Assets/Music/gameover.mp3" id="2_6udm3"]
+
+[node name="gameover" type="CanvasLayer"]
+script = ExtResource("1_lk1c7")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 530.0
+offset_top = 253.0
+offset_right = -530.0
+offset_bottom = -372.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="retry" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 550.0
+offset_top = 292.0
+offset_right = -546.0
+offset_bottom = -325.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RETRY"
+
+[node name="quit" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 555.0
+offset_top = 344.0
+offset_right = -550.0
+offset_bottom = -273.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_6udm3")
+autoplay = true
+
+[connection signal="pressed" from="retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

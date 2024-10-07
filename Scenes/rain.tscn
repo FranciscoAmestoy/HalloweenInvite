@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs7y82gafly4b"]
+
+[ext_resource type="Texture2D" uid="uid://b5hn2qhl0ajbj" path="res://Assets/Characters/raindrop.png" id="1_3o1t0"]
+[ext_resource type="Script" path="res://Scripts/rain.gd" id="1_ed3xl"]
+
+[node name="rain" type="Node2D"]
+position = Vector2(601, 2)
+script = ExtResource("1_ed3xl")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 100
+lifetime = 5.0
+randomness = 0.5
+lifetime_randomness = 0.5
+texture = ExtResource("1_3o1t0")
+emission_shape = 3
+emission_rect_extents = Vector2(600, 1)
+gravity = Vector2(-200, 980)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.521141, 0.521141, 0.521141, 1)

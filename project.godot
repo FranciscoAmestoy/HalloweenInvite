@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="HalloweenInvite"
-run/main_scene="res://Scenes/startscreen.tscn"
+run/main_scene="res://Scenes/character_selection.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -23,7 +23,7 @@ GlobalTime="*res://Scripts/GlobalTime.gd"
 [display]
 
 window/size/mode=3
-window/stretch/scale=6.0
+window/stretch/scale=7.5
 
 [input]
 

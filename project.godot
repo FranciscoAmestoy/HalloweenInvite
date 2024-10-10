@@ -23,7 +23,7 @@ GlobalTime="*res://Scripts/GlobalTime.gd"
 [display]
 
 window/size/mode=3
-window/stretch/scale=7.5
+window/stretch/scale=4.0
 
 [input]
 

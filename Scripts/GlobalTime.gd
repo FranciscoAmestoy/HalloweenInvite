@@ -5,9 +5,9 @@ var full_cycle_duration_seconds = 120  # Duration of a full 24-hour cycle in rea
 
 # Simple rain control variables
 var is_raining = false
-var rain_duration = 10.0  # Fixed duration for rain in seconds
+var rain_duration = 7200  # Fixed duration for rain in seconds
 var rain_timer = 0.0  # Timer to keep track of rain duration
-var check_interval = 5.0  # How often to check for rain in seconds
+var check_interval = 5  # How often to check for rain in seconds
 var chance_of_rain = 1/1.5  # Chance to start raining on each check
 
 # Timer node to control rain checks

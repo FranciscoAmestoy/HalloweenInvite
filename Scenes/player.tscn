@@ -757,7 +757,7 @@ script = ExtResource("1_pwakn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xrrd4")
-animation = &"Lore_&_Agus_walk_up"
+animation = &"Lore_&_Agus_attack_down"
 autoplay = "Yan_idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

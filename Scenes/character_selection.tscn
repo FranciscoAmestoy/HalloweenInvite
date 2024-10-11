@@ -28,7 +28,7 @@ scale = Vector2(0.62, 0.6)
 mouse_default_cursor_shape = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Lore" type="TextureButton" parent="TextureRect"]
+[node name="Lore_&_Agus" type="TextureButton" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -41,24 +41,10 @@ scale = Vector2(0.62, 0.6)
 mouse_default_cursor_shape = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Agus" type="TextureButton" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1247.0
-offset_top = 222.0
-offset_right = 7.99988
-offset_bottom = 200.0
-scale = Vector2(0.62, 0.6)
-mouse_default_cursor_shape = 2
-metadata/_edit_use_anchors_ = true
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(0.62, 0.6)
 stream = ExtResource("3_ep2md")
 autoplay = true
 
 [connection signal="pressed" from="TextureRect/Yan" to="." method="_on_yan_pressed"]
-[connection signal="pressed" from="TextureRect/Lore" to="." method="_on_lore_pressed"]
-[connection signal="pressed" from="TextureRect/Agus" to="." method="_on_agus_pressed"]
+[connection signal="pressed" from="TextureRect/Lore_&_Agus" to="." method="_on_lore_pressed"]

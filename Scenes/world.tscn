@@ -340,34 +340,6 @@ script = SubResource("GDScript_p1hgi")
 
 [node name="Inventory" parent="TileMapGrass/TileMapTreesFiller2/player" instance=ExtResource("6_u1x46")]
 
-[node name="magpie" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(674, 358)
-
-[node name="magpie2" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(399, 362)
-
-[node name="magpie3" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(921, 106)
-
-[node name="magpie4" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(152, 359)
-
-[node name="magpie5" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(220, 84)
-
-[node name="magpie6" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
-position = Vector2(663, 127)
-
-[node name="health_potion" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("7_saro1")]
-position = Vector2(107, 100)
-scale = Vector2(0.5, 0.5)
-
-[node name="health_potion2" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("7_saro1")]
-position = Vector2(140, 101)
-scale = Vector2(0.5, 0.5)
-
-[node name="rain" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("11_daejf")]
-
 [node name="MusicKH" type="Area2D" parent="TileMapGrass/TileMapTreesFiller2"]
 script = ExtResource("11_ierla")
 
@@ -419,6 +391,15 @@ shape = SubResource("RectangleShape2D_xeqna")
 position = Vector2(-60.2396, -96.8228)
 scale = Vector2(0.11409, 0.107701)
 stream = ExtResource("14_0q737")
+
+[node name="magpie" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
+position = Vector2(121, 87)
+
+[node name="health_potion" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("7_saro1")]
+position = Vector2(107, 100)
+scale = Vector2(0.5, 0.5)
+
+[node name="rain" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("11_daejf")]
 
 [node name="cave" type="Area2D" parent="."]
 

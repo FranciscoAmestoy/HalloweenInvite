@@ -1,0 +1,355 @@
+[gd_scene load_steps=25 format=3 uid="uid://dfca0rqcymsn3"]
+
+[ext_resource type="Texture2D" uid="uid://dmthmhxmr5kcw" path="res://Assets/Characters/ghost.png" id="2_lyyr5"]
+
+[sub_resource type="GDScript" id="GDScript_mv5vi"]
+script/source = "# Extending the CharacterBody2D class to create a custom enemy character
+extends CharacterBody2D
+
+# Declare variables for movement speed, last direction, animated sprite, and direction change timer
+var speed = 50
+var last_direction = Vector2.ZERO
+var animated_sprite
+var direction_change_timer = 0
+var direction_change_interval = 3 # seconds
+var swoop_speed = 75 # Speed when swooping towards the player
+var swoop = false # Flag to determine if the magpie is swooping towards the player
+var player = null # Reference to the player
+var player_in_range = false # Flag to track if the player is within range
+var health = 50
+var is_dead = false
+var damage_timer = 0.0
+var damage_interval = 0.5 # Time in seconds to damage player
+var damage_from_player_timer = 0.0
+var damage_from_player_interval = 0.5 # Time in seconds to damage Magpie
+var is_attacking = false
+# Define the boundaries of the area where the magpie can fly (in pixels)
+var min_position = Vector2(0, 0)
+var max_position = Vector2(800, 430)
+
+# _ready function is called when the node is added to the scene
+# For arduino fans, think of the _ready function like ‘void setup’
+func _ready():
+	animated_sprite = $AnimatedSprite2D # Reference to the AnimatedSprite2D node
+	pick_random_direction() # Pick an initial random direction for the enemy
+	add_to_group(\"Enemy\")
+# _physics_process function is called every physics frame (typically 60 times per second)
+# For arduino fans, think of the _physics_process function like ‘void loop’
+func _physics_process(delta):
+	if player_in_range:
+		damage_from_player_timer += delta
+		if damage_from_player_timer >= damage_from_player_interval and player.is_attacking:
+			health -= 10
+			print(\"Magpie Health: \", health)
+			damage_from_player_timer = 0.0
+		
+	update_health()
+	die()
+	
+	if swoop:
+		var direction_to_player = (player.position - position).normalized()
+		velocity = direction_to_player * swoop_speed
+		update_animation(direction_to_player, true) # Pass true for swoop
+	else:
+		direction_change_timer += delta
+		if direction_change_timer >= direction_change_interval:
+			pick_random_direction()
+			direction_change_timer = 0
+		
+		velocity = last_direction * speed
+		update_animation(last_direction)
+
+	move_and_slide()
+
+	var old_position = position
+	position.x = clamp(position.x, min_position.x, max_position.x)
+	position.y = clamp(position.y, min_position.y, max_position.y)
+
+	if old_position != position:
+		last_direction = -last_direction
+		
+	if player_in_range:
+		damage_timer += delta
+	if damage_timer >= damage_interval:
+		Global.health -= 10  # Reduce health
+		damage_timer = 0.0
+
+		
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
+	if health >= 50:
+		healthbar.visible = false
+	else: 
+		healthbar.visible = true
+
+func die():
+	if health <= 0 and not is_dead:
+		is_dead = true
+		queue_free()
+			
+# Modified update_animation function
+func update_animation(direction, swooping=false):
+	if is_dead or is_attacking:  # Skip animation update if the enemy is dead or attacking
+		return  
+		
+	if player_in_range and swooping:
+		animated_sprite.play(\"fight\")
+		animated_sprite.flip_h = direction.x < 0
+		animated_sprite.flip_v = direction.y > 0
+		is_attacking = true  # Set the flag to true
+		return
+
+	is_attacking = false  # Reset the flag
+
+	animated_sprite.flip_h = false
+	animated_sprite.flip_v = false
+
+	if direction.x != 0:
+		animated_sprite.play(\"fly_right\")
+		animated_sprite.flip_h = direction.x < 0
+	elif direction.y < 0:
+		animated_sprite.play(\"fly_up\")
+	elif direction.y > 0:
+		animated_sprite.play(\"fly_up\")
+		animated_sprite.flip_v = true
+
+func pick_random_direction():
+	var new_direction = Vector2.ZERO
+	while new_direction == Vector2.ZERO:
+		new_direction = Vector2(randi() % 3 - 1, randi() % 3 - 1)
+	new_direction = new_direction.normalized()
+	last_direction = new_direction
+
+
+func _on_territory_body_entered(body):
+	if body.is_in_group(\"Player\"):
+		player = body
+		if Global.has_stick:  # Check the flag
+			swoop = false  # Fly away
+		else:
+			swoop = true  # Attack
+
+func _on_territory_body_exited(body):
+	if body.is_in_group(\"Player\"):
+		player = null
+		swoop = false
+		pick_random_direction()
+		update_animation(last_direction)
+
+func _on_magpie_hitbox_body_entered(body):
+	if body.is_in_group(\"Player\"):
+		player_in_range = true
+		swoop_speed = 0
+		print(\"Swooping!\")
+		animated_sprite.flip_v = position.y > body.position.y
+		animated_sprite.flip_h = position.x > body.position.x
+		
+		
+func _on_magpie_hitbox_body_exited(body):
+	if body.is_in_group(\"Player\"):
+		player_in_range = false
+		print(\"Player exited the hitbox!\")
+		pick_random_direction()
+		update_animation(last_direction)
+		swoop_speed = 75
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylbtf"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rg5e"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfolv"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fnqp"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jr1e"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka4us"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7lvi"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0h2c"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydjjx"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h262t"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8njib"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx567"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aim4d"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g8ou"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl0hr"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gg6d"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npubj"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37vvg"]
+atlas = ExtResource("2_lyyr5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8wlx7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylbtf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rg5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfolv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fnqp")
+}],
+"loop": true,
+"name": &"fight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jr1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka4us")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7lvi")
+}],
+"loop": true,
+"name": &"fly_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0h2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydjjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h262t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8njib")
+}],
+"loop": true,
+"name": &"fly_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx567")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aim4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g8ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl0hr")
+}],
+"loop": true,
+"name": &"fly_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gg6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npubj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37vvg")
+}],
+"loop": true,
+"name": &"fly_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h00p6"]
+radius = 2.0
+height = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7bwvf"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8a0n7"]
+radius = 44.1022
+
+[node name="ghost" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 2
+collision_mask = 2
+script = SubResource("GDScript_mv5vi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8wlx7")
+animation = &"fly_left"
+autoplay = "fly_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_h00p6")
+
+[node name="ghost_hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ghost_hitbox"]
+shape = SubResource("CircleShape2D_7bwvf")
+
+[node name="territory" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="territory"]
+shape = SubResource("CircleShape2D_8a0n7")
+
+[connection signal="body_entered" from="ghost_hitbox" to="." method="_on_magpie_hitbox_body_entered"]
+[connection signal="body_exited" from="ghost_hitbox" to="." method="_on_magpie_hitbox_body_exited"]
+[connection signal="body_entered" from="territory" to="." method="_on_territory_body_entered"]
+[connection signal="body_exited" from="territory" to="." method="_on_territory_body_exited"]

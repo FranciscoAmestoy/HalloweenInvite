@@ -6,4 +6,4 @@ func _process(_delta):
 	if time_of_day >= 6.0 and time_of_day < 21.0:
 		visible = false
 	else:
-		visible = true
+		visible = false

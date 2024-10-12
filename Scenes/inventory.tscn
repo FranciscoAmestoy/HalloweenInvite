@@ -18,6 +18,8 @@ anchor_left = 0.05
 anchor_top = 0.05
 anchor_right = 0.85
 anchor_bottom = 0.85
+text = "1"
+alignment = 2
 
 [node name="Slot1Image" type="TextureRect" parent="Control/Slot1"]
 layout_mode = 1
@@ -40,6 +42,8 @@ anchor_left = 0.9
 anchor_top = 0.05
 anchor_right = 1.7
 anchor_bottom = 0.85
+text = "2"
+alignment = 2
 
 [node name="Slot2Image" type="TextureRect" parent="Control/Slot2"]
 layout_mode = 1
@@ -62,6 +66,8 @@ anchor_left = 1.75
 anchor_top = 0.05
 anchor_right = 2.55
 anchor_bottom = 0.85
+text = "3"
+alignment = 2
 
 [node name="Slot3Image" type="TextureRect" parent="Control/Slot3"]
 layout_mode = 1
@@ -84,6 +90,8 @@ anchor_left = 2.6
 anchor_top = 0.05
 anchor_right = 3.4
 anchor_bottom = 0.85
+text = "4"
+alignment = 2
 
 [node name="Slot4Image" type="TextureRect" parent="Control/Slot4"]
 layout_mode = 1

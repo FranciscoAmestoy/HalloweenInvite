@@ -94,7 +94,7 @@ func _input(event):
 		attack_timer = 0.0
 		# Check which character is selected and play the corresponding attack sound
 		if Global.character == "Yan":
-			$bazza_attack.play()
+			$shazza_attack.play()
 		else:
 			$shazza_attack.play()
 

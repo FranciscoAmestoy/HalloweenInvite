@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxrd847mdvhs1"]
+[gd_scene load_steps=4 format=3 uid="uid://dxrd847mdvhs1"]
 
 [ext_resource type="Script" path="res://Scripts/inventory.gd" id="1_woodg"]
+[ext_resource type="Texture2D" uid="uid://dn0pbp352170x" path="res://Assets/Characters/scroll.png" id="2_bjk8u"]
 [ext_resource type="AudioStream" uid="uid://cc4l505v4711b" path="res://Assets/SFX/charSelect.mp3" id="2_kivy0"]
 
 [node name="Inventory" type="CanvasLayer"]
@@ -113,6 +114,91 @@ offset_right = -0.00800133
 offset_bottom = -0.00800133
 grow_horizontal = 2
 grow_vertical = 2
+expand_mode = 4
+stretch_mode = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.85
+anchor_bottom = 0.85
+offset_left = 1.0
+offset_top = 35.0
+offset_right = 102.0
+offset_bottom = 30.0
+show_percentage = false
+
+[node name="Progress1Image" type="TextureRect" parent="Control/ProgressBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.031
+anchor_top = 0.031
+anchor_right = 0.969
+anchor_bottom = 0.969
+offset_left = 1.877
+offset_top = 3.163
+offset_right = -96.877
+offset_bottom = 3.837
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.71, 0.71)
+texture = ExtResource("2_bjk8u")
+expand_mode = 4
+stretch_mode = 3
+
+[node name="Progress2Image" type="TextureRect" parent="Control/ProgressBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.031
+anchor_top = 0.031
+anchor_right = 0.969
+anchor_bottom = 0.969
+offset_left = 34.877
+offset_top = 3.163
+offset_right = -63.877
+offset_bottom = 3.837
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.71, 0.71)
+texture = ExtResource("2_bjk8u")
+expand_mode = 4
+stretch_mode = 3
+
+[node name="Progress3Image" type="TextureRect" parent="Control/ProgressBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.031
+anchor_top = 0.031
+anchor_right = 0.969
+anchor_bottom = 0.969
+offset_left = 68.877
+offset_top = 3.163
+offset_right = -29.877
+offset_bottom = 3.837
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.71, 0.71)
+texture = ExtResource("2_bjk8u")
+expand_mode = 4
+stretch_mode = 3
+
+[node name="Progress4Image" type="TextureRect" parent="Control/ProgressBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.031
+anchor_top = 0.031
+anchor_right = 0.969
+anchor_bottom = 0.969
+offset_left = 102.877
+offset_top = 3.163
+offset_right = 4.123
+offset_bottom = 3.837
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.71, 0.71)
+texture = ExtResource("2_bjk8u")
 expand_mode = 4
 stretch_mode = 3
 

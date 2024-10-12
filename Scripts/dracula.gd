@@ -13,9 +13,9 @@ var player_in_range = false # Flag to track if the player is within range
 var health = 1
 var is_dead = false
 var damage_timer = 0.0
-var damage_interval = 0.5 # Time in seconds to damage player
+var damage_interval = 0.1 # Time in seconds to damage player
 var damage_from_player_timer = 0.0
-var damage_from_player_interval = 0.5 # Time in seconds to damage Ghost
+var damage_from_player_interval = 0.1 # Time in seconds to damage Ghost
 var is_attacking = false
 
 # Define the boundaries of the area where the ghost can fly (in pixels)

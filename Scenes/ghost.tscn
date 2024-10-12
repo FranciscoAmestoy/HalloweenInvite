@@ -181,6 +181,7 @@ autoplay = "fly_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
+scale = Vector2(2.86, 0.71)
 shape = SubResource("CapsuleShape2D_h00p6")
 
 [node name="ghost_hitbox" type="Area2D" parent="."]
@@ -188,6 +189,7 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ghost_hitbox"]
+scale = Vector2(1.05, 1.59)
 shape = SubResource("CircleShape2D_7bwvf")
 
 [node name="territory" type="Area2D" parent="."]

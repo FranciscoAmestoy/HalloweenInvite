@@ -40,7 +40,7 @@ func _physics_process(delta):
 			health -= 10
 			update_health()  # Update health bar status
 			damage_from_player_timer = 0.0
-			print("Ghost Health: ", health)
+			print("Wolf Health: ", health)
 		
 		die()
 		
@@ -126,7 +126,7 @@ func _on_territory_body_entered(body):
 			swoop = false  # Fly away
 		else:
 			swoop = true  # Attack
-		print("Player entered the ghost territory!")  # Print for debugging purposes
+		print("Player entered the Wolf territory!")  # Print for debugging purposes
 
 func _on_territory_body_exited(body):
 	if body.is_in_group("Player"):
@@ -134,7 +134,7 @@ func _on_territory_body_exited(body):
 		swoop = false
 		pick_random_direction()
 		update_animation(last_direction)
-		print("Player exited the ghost territory!")  # Print for debugging purposes
+		print("Player exited the Wolf territory!")  # Print for debugging purposes
 
 func _on_magpie_hitbox_body_entered(body):
 	if body.is_in_group("Player"):

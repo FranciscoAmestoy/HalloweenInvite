@@ -9,7 +9,7 @@ func _ready():
 	print(item_texture)
 
 func use():
-	Global.health  +=20
+	Global.health  +=33
 	print("Health Potion Used")
 	queue_free()
 

@@ -66,7 +66,7 @@ func _physics_process(delta):
 	if player_in_range:
 		damage_timer += delta
 	if damage_timer >= damage_interval:
-		Global.health -= 10  # Reduce health
+		Global.health -= 34  # Reduce health
 		damage_timer = 0.0
 
 		

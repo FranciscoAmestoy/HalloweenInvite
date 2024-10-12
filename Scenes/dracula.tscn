@@ -1,0 +1,163 @@
+[gd_scene load_steps=17 format=3 uid="uid://0trbmammq33s"]
+
+[ext_resource type="Script" path="res://Scripts/dracula.gd" id="1_ugbh7"]
+[ext_resource type="Texture2D" uid="uid://bh3ntknpngroe" path="res://Assets/Characters/dracula.png" id="2_0xqr5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w1j3"]
+atlas = ExtResource("2_0xqr5")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2apm"]
+atlas = ExtResource("2_0xqr5")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx47k"]
+atlas = ExtResource("2_0xqr5")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqli4"]
+atlas = ExtResource("2_0xqr5")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80wlw"]
+atlas = ExtResource("2_0xqr5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu0cy"]
+atlas = ExtResource("2_0xqr5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6em5t"]
+atlas = ExtResource("2_0xqr5")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1jcu"]
+atlas = ExtResource("2_0xqr5")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rikk"]
+atlas = ExtResource("2_0xqr5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vv7m"]
+atlas = ExtResource("2_0xqr5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8wlx7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w1j3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2apm")
+}],
+"loop": true,
+"name": &"fight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx47k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqli4")
+}],
+"loop": true,
+"name": &"fly_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80wlw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu0cy")
+}],
+"loop": true,
+"name": &"fly_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6em5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1jcu")
+}],
+"loop": true,
+"name": &"fly_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rikk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vv7m")
+}],
+"loop": true,
+"name": &"fly_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h00p6"]
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7bwvf"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8a0n7"]
+radius = 44.1022
+
+[node name="dracula" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_ugbh7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 0)
+sprite_frames = SubResource("SpriteFrames_8wlx7")
+animation = &"fly_up"
+autoplay = "fly_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.54, 0)
+rotation = 1.5708
+scale = Vector2(0.71, 0.535)
+shape = SubResource("CapsuleShape2D_h00p6")
+
+[node name="ghost_hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ghost_hitbox"]
+scale = Vector2(1.245, 2.035)
+shape = SubResource("CircleShape2D_7bwvf")
+
+[node name="territory" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="territory"]
+shape = SubResource("CircleShape2D_8a0n7")
+
+[node name="healthbar" type="ProgressBar" parent="."]
+modulate = Color(0, 1, 0, 1)
+offset_left = -6.0
+offset_top = -12.0
+offset_right = 34.0
+offset_bottom = 2.0
+scale = Vector2(0.3, 0.3)
+max_value = 50.0
+fill_mode = 1
+show_percentage = false
+
+[connection signal="body_entered" from="ghost_hitbox" to="." method="_on_ghost_hitbox_body_entered"]
+[connection signal="body_entered" from="ghost_hitbox" to="." method="_on_magpie_hitbox_body_entered"]
+[connection signal="body_exited" from="ghost_hitbox" to="." method="_on_ghost_hitbox_body_exited"]
+[connection signal="body_exited" from="ghost_hitbox" to="." method="_on_magpie_hitbox_body_exited"]
+[connection signal="body_entered" from="territory" to="." method="_on_territory_body_entered"]
+[connection signal="body_exited" from="territory" to="." method="_on_territory_body_exited"]

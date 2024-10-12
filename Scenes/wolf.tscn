@@ -1,0 +1,162 @@
+[gd_scene load_steps=17 format=3 uid="uid://dkjf0hbmbjkkf"]
+
+[ext_resource type="Script" path="res://Scripts/ghost.gd" id="1_euhtx"]
+[ext_resource type="Texture2D" uid="uid://biumww6xd1m7n" path="res://Assets/Characters/wolf.png" id="2_8jtp4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhkgy"]
+atlas = ExtResource("2_8jtp4")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wfux"]
+atlas = ExtResource("2_8jtp4")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eqgc"]
+atlas = ExtResource("2_8jtp4")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owmtk"]
+atlas = ExtResource("2_8jtp4")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hihu"]
+atlas = ExtResource("2_8jtp4")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_548mw"]
+atlas = ExtResource("2_8jtp4")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms6w3"]
+atlas = ExtResource("2_8jtp4")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx6ru"]
+atlas = ExtResource("2_8jtp4")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyv16"]
+atlas = ExtResource("2_8jtp4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x1pu"]
+atlas = ExtResource("2_8jtp4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8wlx7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhkgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wfux")
+}],
+"loop": true,
+"name": &"fight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eqgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owmtk")
+}],
+"loop": true,
+"name": &"fly_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hihu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_548mw")
+}],
+"loop": true,
+"name": &"fly_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms6w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx6ru")
+}],
+"loop": true,
+"name": &"fly_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyv16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x1pu")
+}],
+"loop": true,
+"name": &"fly_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h00p6"]
+radius = 2.0
+height = 10.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7bwvf"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8a0n7"]
+radius = 44.1022
+
+[node name="wolf" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_euhtx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8wlx7")
+animation = &"fly_left"
+autoplay = "fly_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(2.78, 0.825)
+shape = SubResource("CapsuleShape2D_h00p6")
+
+[node name="ghost_hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ghost_hitbox"]
+scale = Vector2(1.215, 1.815)
+shape = SubResource("CircleShape2D_7bwvf")
+
+[node name="territory" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="territory"]
+shape = SubResource("CircleShape2D_8a0n7")
+
+[node name="healthbar" type="ProgressBar" parent="."]
+modulate = Color(0, 1, 0, 1)
+offset_left = -6.0
+offset_top = -12.0
+offset_right = 34.0
+offset_bottom = 2.0
+scale = Vector2(0.3, 0.3)
+max_value = 50.0
+fill_mode = 1
+show_percentage = false
+
+[connection signal="body_entered" from="ghost_hitbox" to="." method="_on_ghost_hitbox_body_entered"]
+[connection signal="body_entered" from="ghost_hitbox" to="." method="_on_magpie_hitbox_body_entered"]
+[connection signal="body_exited" from="ghost_hitbox" to="." method="_on_ghost_hitbox_body_exited"]
+[connection signal="body_exited" from="ghost_hitbox" to="." method="_on_magpie_hitbox_body_exited"]
+[connection signal="body_entered" from="territory" to="." method="_on_territory_body_entered"]
+[connection signal="body_exited" from="territory" to="." method="_on_territory_body_exited"]

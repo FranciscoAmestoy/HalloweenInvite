@@ -1094,11 +1094,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7g3gr"]
-radius = 4.0
-height = 10.0
+radius = 8.0
+height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h8xg8"]
-radius = 7.0
+radius = 8.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4nq3u"]
 polygon = PackedVector2Array(-5, 7, 2, 4, 9, 7, 2, 10)
@@ -1115,14 +1115,14 @@ autoplay = "Yan_idle_down"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(0, 4)
+scale = Vector2(0.435, 0.44)
 shape = SubResource("CapsuleShape2D_7g3gr")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 2)
+scale = Vector2(0.55, 0.82)
 shape = SubResource("CircleShape2D_h8xg8")
 
 [node name="healthbar" type="ProgressBar" parent="."]

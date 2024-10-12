@@ -150,20 +150,20 @@ tile_set = SubResource("TileSet_t1xln")
 [node name="world" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="world"]
-position = Vector2(127, 145)
+position = Vector2(128, 137)
 shape = SubResource("RectangleShape2D_ifgvg")
 
 [node name="mum" parent="." instance=ExtResource("2_pr7ab")]
 position = Vector2(125, 40)
 
 [node name="player" parent="." instance=ExtResource("3_8jr25")]
-position = Vector2(125, 129)
+position = Vector2(127, 103)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(0.7, 0.7)
 
 [node name="stick" parent="." instance=ExtResource("5_clok2")]
-position = Vector2(125, 55)
+position = Vector2(123, 62)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_5virs")

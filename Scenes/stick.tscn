@@ -61,5 +61,6 @@ color = Color(0.976471, 0.584314, 0.129412, 1)
 energy = 0.82
 shadow_enabled = true
 texture = ExtResource("3_mcep6")
+texture_scale = 0.3
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

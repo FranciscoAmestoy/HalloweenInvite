@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dx7fcsd20t4mh"]
+
+[ext_resource type="Script" path="res://Scripts/candle.gd" id="1_w8s48"]
+[ext_resource type="Texture2D" uid="uid://c0tlr3b6qvhrs" path="res://Assets/Characters/prop_lu.png" id="2_pa2ir"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7hrcf"]
+radius = 5.0
+height = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdm1j"]
+atlas = ExtResource("2_pa2ir")
+region = Rect2(0, 0, 23, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e0gc"]
+atlas = ExtResource("2_pa2ir")
+region = Rect2(23, 0, 23, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_81s4q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdm1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4e0gc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="prop_lu" type="StaticBody2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_w8s48")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7hrcf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_81s4q")
+autoplay = "default"
+frame_progress = 0.780743

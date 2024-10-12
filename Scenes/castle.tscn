@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhesmqhk0ngb2"]
+
+[ext_resource type="Script" path="res://Scripts/candle.gd" id="1_n0wtq"]
+[ext_resource type="Texture2D" uid="uid://c1ghy8dopr0so" path="res://Assets/Characters/prop_castle.png" id="2_sugpu"]
+[ext_resource type="Texture2D" uid="uid://xmkmqywql5de" path="res://Assets/Characters/star_01.png" id="3_kf35q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pc0cb"]
+size = Vector2(153.23, 165.735)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h27ia"]
+atlas = ExtResource("2_sugpu")
+region = Rect2(0, 0, 74, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_81s4q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h27ia")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="castle" type="StaticBody2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_n0wtq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pc0cb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_81s4q")
+autoplay = "default"
+frame_progress = 0.932206
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.976471, 0.584314, 0.129412, 1)
+energy = 2.0
+shadow_enabled = true
+texture = ExtResource("3_kf35q")
+offset = Vector2(-28.43, 56.3)
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+color = Color(0.976471, 0.584314, 0.129412, 1)
+energy = 2.0
+shadow_enabled = true
+texture = ExtResource("3_kf35q")
+offset = Vector2(32.84, 57.88)
+texture_scale = 0.5
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+color = Color(0.976471, 0.584314, 0.129412, 1)
+energy = 2.0
+shadow_enabled = true
+texture = ExtResource("3_kf35q")
+offset = Vector2(61.12, 57.88)
+texture_scale = 0.5
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+color = Color(0.976471, 0.584314, 0.129412, 1)
+energy = 2.0
+shadow_enabled = true
+texture = ExtResource("3_kf35q")
+offset = Vector2(-60.9, 57.88)
+texture_scale = 0.5

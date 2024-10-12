@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dfduvhqdt5nbe"]
+[gd_scene load_steps=35 format=4 uid="uid://dfduvhqdt5nbe"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_r7tiy"]
 [ext_resource type="Texture2D" uid="uid://8gsl15dd0ohp" path="res://Assets/WorldMap/fantasy_ [version 2.0]/taiga_/taiga_ [resources].png" id="2_i6dxc"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cm62q60ypq7vk" path="res://Scenes/pumpkin.tscn" id="21_yp64d"]
 [ext_resource type="Script" path="res://Scripts/pumpkin.gd" id="22_b2xtl"]
 [ext_resource type="PackedScene" uid="uid://0trbmammq33s" path="res://Scenes/dracula.tscn" id="23_7bn8j"]
+[ext_resource type="PackedScene" uid="uid://bhesmqhk0ngb2" path="res://Scenes/castle.tscn" id="24_lrgby"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gv6qx"]
 texture = ExtResource("3_q3mck")
@@ -459,32 +460,40 @@ scale = Vector2(53.925, 1)
 shape = SubResource("RectangleShape2D_gx5mf")
 
 [node name="magpie" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
+visible = false
 position = Vector2(331, 83)
 
 [node name="health_potion" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("7_saro1")]
-position = Vector2(107, 100)
+position = Vector2(72, 46)
 scale = Vector2(0.5, 0.5)
 
 [node name="rain" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("11_daejf")]
 
 [node name="ghost" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("15_od4e0")]
+visible = false
 position = Vector2(668, 89)
 
 [node name="wolf" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("19_7flre")]
+visible = false
 position = Vector2(107, 318)
 script = ExtResource("20_lbifl")
 
 [node name="pumpkin" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("21_yp64d")]
-position = Vector2(609, 334)
+visible = false
+position = Vector2(131, 182)
 script = ExtResource("22_b2xtl")
 
 [node name="dracula" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("23_7bn8j")]
-position = Vector2(159, 162)
+visible = false
+position = Vector2(383, 365)
+
+[node name="castle" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_lrgby")]
+position = Vector2(151, 862)
 
 [node name="cave" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cave"]
-position = Vector2(128, 58)
+position = Vector2(127, -33)
 shape = SubResource("RectangleShape2D_q6pyt")
 
 [node name="day_night" parent="." instance=ExtResource("10_jm3vr")]

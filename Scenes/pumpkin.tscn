@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cm62q60ypq7vk"]
+[gd_scene load_steps=18 format=3 uid="uid://cm62q60ypq7vk"]
 
 [ext_resource type="Script" path="res://Scripts/ghost.gd" id="1_2stst"]
 [ext_resource type="Texture2D" uid="uid://dbkoo0qwjf4ve" path="res://Assets/Characters/pumpkin.png" id="2_bl10h"]
@@ -111,6 +111,9 @@ radius = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_8a0n7"]
 radius = 44.1022
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_f6ys8"]
+polygon = PackedVector2Array(-5, 7, 2, 4, 9, 7, 2, 10)
+
 [node name="pumpkin" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -119,6 +122,7 @@ collision_mask = 15
 script = ExtResource("1_2stst")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 0)
 sprite_frames = SubResource("SpriteFrames_8wlx7")
 animation = &"fly_left"
 autoplay = "fly_right"
@@ -144,6 +148,7 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_8a0n7")
 
 [node name="healthbar" type="ProgressBar" parent="."]
+visible = false
 modulate = Color(0, 1, 0, 1)
 offset_left = -6.0
 offset_top = -12.0
@@ -153,6 +158,10 @@ scale = Vector2(0.3, 0.3)
 max_value = 50.0
 fill_mode = 1
 show_percentage = false
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-2, 0)
+occluder = SubResource("OccluderPolygon2D_f6ys8")
 
 [connection signal="body_entered" from="ghost_hitbox" to="." method="_on_ghost_hitbox_body_entered"]
 [connection signal="body_entered" from="ghost_hitbox" to="." method="_on_magpie_hitbox_body_entered"]

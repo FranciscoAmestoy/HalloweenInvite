@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxrd847mdvhs1"]
+[gd_scene load_steps=3 format=3 uid="uid://dxrd847mdvhs1"]
 
 [ext_resource type="Script" path="res://Scripts/inventory.gd" id="1_woodg"]
+[ext_resource type="AudioStream" uid="uid://cc4l505v4711b" path="res://Assets/SFX/charSelect.mp3" id="2_kivy0"]
 
 [node name="Inventory" type="CanvasLayer"]
 script = ExtResource("1_woodg")
@@ -114,3 +115,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 4
 stretch_mode = 3
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(0.62, 0.6)
+stream = ExtResource("2_kivy0")

@@ -38,7 +38,7 @@ script = ExtResource("1_8ftrb")
 shape = SubResource("CapsuleShape2D_7hrcf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_81s4q")
 autoplay = "default"
-frame_progress = 0.577703
+frame_progress = 0.640369

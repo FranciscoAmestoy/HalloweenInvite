@@ -107,11 +107,11 @@ scale = Vector2(0.62, 0.6)
 stream = ExtResource("3_ep2md")
 autoplay = true
 
-[connection signal="mouse_entered" from="TextureRect/Yan" to="." method="_on_yan_focus_entered"]
 [connection signal="mouse_entered" from="TextureRect/Yan" to="." method="_on_lore_focus_entered"]
 [connection signal="mouse_entered" from="TextureRect/Yan" to="." method="_on_agus_focus_entered"]
-[connection signal="mouse_exited" from="TextureRect/Yan" to="." method="_on_yan_focus_exited"]
+[connection signal="mouse_entered" from="TextureRect/Yan" to="." method="_on_yan_focus_entered"]
 [connection signal="mouse_exited" from="TextureRect/Yan" to="." method="_on_lore_focus_exited"]
+[connection signal="mouse_exited" from="TextureRect/Yan" to="." method="_on_yan_focus_exited"]
 [connection signal="mouse_exited" from="TextureRect/Yan" to="." method="_on_agus_focus_exited"]
 [connection signal="mouse_entered" from="TextureRect/Yan/Yan2" to="." method="_on_yan_focus_entered"]
 [connection signal="mouse_exited" from="TextureRect/Yan/Yan2" to="." method="_on_yan_focus_exited"]

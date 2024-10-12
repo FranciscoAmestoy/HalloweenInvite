@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://dfduvhqdt5nbe"]
+[gd_scene load_steps=40 format=4 uid="uid://dfduvhqdt5nbe"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_r7tiy"]
 [ext_resource type="Texture2D" uid="uid://8gsl15dd0ohp" path="res://Assets/WorldMap/fantasy_ [version 2.0]/taiga_/taiga_ [resources].png" id="2_i6dxc"]
@@ -25,6 +25,11 @@
 [ext_resource type="Script" path="res://Scripts/pumpkin.gd" id="22_b2xtl"]
 [ext_resource type="PackedScene" uid="uid://0trbmammq33s" path="res://Scenes/dracula.tscn" id="23_7bn8j"]
 [ext_resource type="PackedScene" uid="uid://bhesmqhk0ngb2" path="res://Scenes/castle.tscn" id="24_lrgby"]
+[ext_resource type="PackedScene" uid="uid://c4ibgj654rbrj" path="res://Scenes/prop_binx.tscn" id="25_u1yig"]
+[ext_resource type="PackedScene" uid="uid://b4rxxlr87gbgo" path="res://Scenes/prop_dharma.tscn" id="26_qvxfs"]
+[ext_resource type="PackedScene" uid="uid://rilgmluvd1ta" path="res://Scenes/prop_fran.tscn" id="27_hcj3x"]
+[ext_resource type="PackedScene" uid="uid://dx7fcsd20t4mh" path="res://Scenes/prop_lu.tscn" id="28_8xwli"]
+[ext_resource type="PackedScene" uid="uid://cmy4pupxonnrx" path="res://Scenes/prop_salem.tscn" id="29_6ja2s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gv6qx"]
 texture = ExtResource("3_q3mck")
@@ -202,6 +207,7 @@ texture = ExtResource("2_i6dxc")
 2:4/0 = 0
 3:4/0 = 0
 4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5.875, 5.75, -6, 5.625, 4.25, -5.125, 4.25, -5.125, -1.375)
 5:4/0 = 0
 6:4/0 = 0
 1:5/0 = 0
@@ -347,7 +353,7 @@ tile_set = SubResource("TileSet_7nj8k")
 z_index = 2
 y_sort_enabled = true
 position = Vector2(64, 186)
-tile_map_data = PackedByteArray("AAABAEAAAAADAAEAAAACAEAAAAADAAEAAAADAEAAAAADAAEAAAAEAEAAAAADAAEAAAAFAEAAAAADAAEAAAAGAEAAAAADAAEAAAAHAEAAAAADAAEAAAAIAEAAAAADAAEAAAAJAEAAAAADAAEAAAAKAEAAAAADAAEAAAALAEAAAAADAAEAAAAMAEAAAAADAAEAAAANAEAAAAADAAEAAAAOAEAAAAADAAEAAAAPAEAAAAADAAEAAAAQAEAAAAABAAEAAAARAEAAAAABAAEAAAASAEAAAAABAAEAAAATAEAAAAABAAEAAAAUAEAAAAABAAEAAAAVAEAAAAABAAEAAAAWAEAAAAABAAEAAAAXAEAAAAABAAEAAAAYAEAAAAABAAEAAAAZAEAAAAABAAEAAAAaAEAAAAABAAEAAAAbAEAAAAABAAEAAAAcAEAAAAABAAEAAAAdAEAAAAABAAEAAAAeAEAAAAABAAEAAAAfAEAAAAABAAEAAAAgAEAAAAADAAEAAAAhAEAAAAADAAEAAAAiAEAAAAADAAEAAAAjAEAAAAADAAEAAAAkAEAAAAADAAEAAAAlAEAAAAADAAEAAAAmAEAAAAADAAEAAAAnAEAAAAADAAEAAAAoAEAAAAADAAEAAAApAEAAAAADAAEAAAAqAEAAAAADAAEAAAArAEAAAAADAAEAAAAsAEAAAAADAAEAAAAtAEAAAAADAAEAAAAuAEAAAAADAAEAAAAvAEAAAAADAAEAAAAwAEAAAAABAAEAAAAxAEAAAAABAAEAAAAyAEAAAAABAAEAAAAzAEAAAAABAAEAAAA0AEAAAAABAAEAAAA1AEAAAAABAAEAAAA2AEAAAAABAAEAAAA3AEAAAAABAAEAAAA4AEAAAAABAAEAAAA5AEAAAAABAAEAAAA6AEAAAAABAAEAAAA7AEAAAAABAAEAAAA8AEAAAAABAAEAAAA9AEAAAAABAAEAAAA+AEAAAAABAAEAAAA/AEAAAAABAAEAAABAAEAAAAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAABAEAAAAADAAEAAAACAEAAAAADAAEAAAADAEAAAAADAAEAAAAEAEAAAAADAAEAAAAFAEAAAAADAAEAAAAGAEAAAAADAAEAAAAHAEAAAAADAAEAAAAIAEAAAAADAAEAAAAJAEAAAAADAAEAAAAKAEAAAAADAAEAAAALAEAAAAADAAEAAAAMAEAAAAADAAEAAAANAEAAAAADAAEAAAAOAEAAAAADAAEAAAAPAEAAAAADAAEAAAAQAEAAAAABAAEAAAARAEAAAAABAAEAAAASAEAAAAABAAEAAAATAEAAAAABAAEAAAAUAEAAAAABAAEAAAAVAEAAAAABAAEAAAAWAEAAAAABAAEAAAAXAEAAAAABAAEAAAAYAEAAAAABAAEAAAAZAEAAAAABAAEAAAAaAEAAAAABAAEAAAAbAEAAAAABAAEAAAAcAEAAAAABAAEAAAAdAEAAAAABAAEAAAAeAEAAAAABAAEAAAAfAEAAAAABAAEAAAAgAEAAAAADAAEAAAAhAEAAAAADAAEAAAAiAEAAAAADAAEAAAAjAEAAAAADAAEAAAAkAEAAAAADAAEAAAAlAEAAAAADAAEAAAAmAEAAAAADAAEAAAAnAEAAAAADAAEAAAAoAEAAAAADAAEAAAApAEAAAAADAAEAAAAqAEAAAAADAAEAAAArAEAAAAADAAEAAAAsAEAAAAADAAEAAAAtAEAAAAADAAEAAAAuAEAAAAADAAEAAAAvAEAAAAADAAEAAAAwAEAAAAABAAEAAAAxAEAAAAABAAEAAAAyAEAAAAABAAEAAAAzAEAAAAABAAEAAAA0AEAAAAABAAEAAAA1AEAAAAABAAEAAAA2AEAAAAABAAEAAAA3AEAAAAABAAEAAAA4AEAAAAABAAEAAAA5AEAAAAABAAEAAAA6AEAAAAABAAEAAAA7AEAAAAABAAEAAAA8AEAAAAABAAEAAAA9AEAAAAABAAEAAAA+AEAAAAABAAEAAAA/AEAAAAABAAEAAABAAEAAAAABAAEAAAANAAMAAAABAAQAAAADAAgAAAABAAQAAAAKAA4AAAABAAMAAAAEAAMAAAAEAAQAAAA=")
 tile_set = SubResource("TileSet_7nj8k")
 
 [node name="player" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("2_qgn54")]
@@ -489,6 +495,21 @@ position = Vector2(383, 365)
 
 [node name="castle" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_lrgby")]
 position = Vector2(151, 862)
+
+[node name="prop_binx" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("25_u1yig")]
+position = Vector2(118, 948)
+
+[node name="prop_dharma" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("26_qvxfs")]
+position = Vector2(150, 955)
+
+[node name="prop_fran" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("27_hcj3x")]
+position = Vector2(129, 939)
+
+[node name="prop_lu" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("28_8xwli")]
+position = Vector2(175, 938)
+
+[node name="prop_salem" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("29_6ja2s")]
+position = Vector2(182, 947)
 
 [node name="cave" type="Area2D" parent="."]
 

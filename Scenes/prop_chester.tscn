@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://tmdj5m5g7wrd"]
+
+[ext_resource type="Script" path="res://Scripts/candle.gd" id="1_8vxa3"]
+[ext_resource type="Texture2D" uid="uid://d4etd68hutefr" path="res://Assets/Characters/prop_chester.png" id="2_pq1ql"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7hrcf"]
+radius = 5.0
+height = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewb4d"]
+atlas = ExtResource("2_pq1ql")
+region = Rect2(0, 0, 19, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40xrm"]
+atlas = ExtResource("2_pq1ql")
+region = Rect2(19, 0, 19, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_81s4q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewb4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40xrm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="prop_chester" type="StaticBody2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_8vxa3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7hrcf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_81s4q")
+autoplay = "default"
+frame_progress = 0.037007

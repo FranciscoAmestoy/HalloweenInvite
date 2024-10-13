@@ -1098,7 +1098,7 @@ radius = 8.0
 height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h8xg8"]
-radius = 8.0
+radius = 0.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4nq3u"]
 polygon = PackedVector2Array(-5, 7, 2, 4, 9, 7, 2, 10)
@@ -1115,7 +1115,7 @@ autoplay = "Yan_idle_down"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-scale = Vector2(0.435, 0.44)
+scale = Vector2(0.335, 0.29)
 shape = SubResource("CapsuleShape2D_7g3gr")
 
 [node name="Hitbox" type="Area2D" parent="."]

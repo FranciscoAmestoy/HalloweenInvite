@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cneyekbi87sb4"]
+
+[ext_resource type="Script" path="res://Scripts/candle.gd" id="1_6ktj1"]
+[ext_resource type="Texture2D" uid="uid://vmsnk8d2p00j" path="res://Assets/Characters/prop_house3.png" id="2_jn2xc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pc0cb"]
+size = Vector2(53.605, 34.07)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvfq7"]
+atlas = ExtResource("2_jn2xc")
+region = Rect2(0, 0, 23, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_81s4q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvfq7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="house2" type="StaticBody2D"]
+collision_layer = 15
+collision_mask = 15
+script = ExtResource("1_6ktj1")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pc0cb")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_81s4q")
+autoplay = "default"
+frame_progress = 0.932206
+metadata/_edit_lock_ = true

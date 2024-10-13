@@ -5,7 +5,7 @@ var speed = 50
 var last_direction = Vector2.ZERO
 var animated_sprite
 var direction_change_timer = 0
-var direction_change_interval = 3 # seconds
+var direction_change_interval = 1 # seconds
 var swoop_speed = 75 # Speed when swooping towards the player
 var swoop = false # Flag to determine if the ghost is swooping towards the player
 var player = null # Reference to the player

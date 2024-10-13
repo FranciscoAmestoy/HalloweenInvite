@@ -4,7 +4,7 @@ extends Node
 
 var has_stick = false
 var last_world_position = Vector2(0,0)
-var health = 100
+var health = 300
 var inventory = []
 var max_inventory_size = 4
 var durries = 0

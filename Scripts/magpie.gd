@@ -1,4 +1,3 @@
-# Extending the CharacterBody2D class to create a custom enemy character
 extends CharacterBody2D
 
 # Declare variables for movement speed, last direction, animated sprite, and direction change timer
@@ -6,7 +5,7 @@ var speed = 50
 var last_direction = Vector2.ZERO
 var animated_sprite
 var direction_change_timer = 0
-var direction_change_interval = 3 # seconds
+var direction_change_interval = 1 # seconds
 var swoop_speed = 75 # Speed when swooping towards the player
 var swoop = false # Flag to determine if the magpie is swooping towards the player
 var player = null # Reference to the player
@@ -20,16 +19,13 @@ var damage_from_player_interval = 0.5 # Time in seconds to damage Magpie
 var is_attacking = false
 # Define the boundaries of the area where the magpie can fly (in pixels)
 var min_position = Vector2(0, 0)
-var max_position = Vector2(800, 430)
+var max_position = Vector2(800, 430) # Adjust these to your room dimensions
 
-# _ready function is called when the node is added to the scene
-# For arduino fans, think of the _ready function like ‘void setup’
 func _ready():
 	animated_sprite = $AnimatedSprite2D # Reference to the AnimatedSprite2D node
 	pick_random_direction() # Pick an initial random direction for the enemy
 	add_to_group("Enemy")
-# _physics_process function is called every physics frame (typically 60 times per second)
-# For arduino fans, think of the _physics_process function like ‘void loop’
+
 func _physics_process(delta):
 	if player_in_range:
 		damage_from_player_timer += delta
@@ -54,15 +50,10 @@ func _physics_process(delta):
 		velocity = last_direction * speed
 		update_animation(last_direction)
 
+	# Move the enemy and check boundaries
 	move_and_slide()
+	check_boundaries()
 
-	var old_position = position
-	position.x = clamp(position.x, min_position.x, max_position.x)
-	position.y = clamp(position.y, min_position.y, max_position.y)
-
-	if old_position != position:
-		last_direction = -last_direction
-		
 	if player_in_range:
 		damage_timer += delta
 	if damage_timer >= damage_interval:
@@ -115,6 +106,18 @@ func pick_random_direction():
 		new_direction = Vector2(randi() % 3 - 1, randi() % 3 - 1)
 	new_direction = new_direction.normalized()
 	last_direction = new_direction
+
+
+func check_boundaries():
+	# Get the enemy's current position
+	var position = global_position
+
+	# Check if the enemy is near the edges of the room and reverse direction if needed
+	if position.x <= min_position.x or position.x >= max_position.x:
+		last_direction.x *= -1  # Reverse horizontal direction
+
+	if position.y <= min_position.y or position.y >= max_position.y:
+		last_direction.y *= -1  # Reverse vertical direction
 
 
 func _on_territory_body_entered(body):

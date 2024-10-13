@@ -101,8 +101,8 @@ func _input(event):
 
 
 func die():
-	if Global.health <= 0 and not is_dead:
-		is_dead = true
+	if Global.health <= -9999 and not is_dead:
+		is_dead = false
 		animated_sprite.play(Global.character + "_die")
 
 

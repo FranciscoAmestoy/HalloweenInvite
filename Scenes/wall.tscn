@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0ipyamcvbw1d"]
+
+[ext_resource type="Script" path="res://Scripts/wall.gd" id="1_tx73s"]
+[ext_resource type="Texture2D" uid="uid://8gsl15dd0ohp" path="res://Assets/WorldMap/fantasy_ [version 2.0]/taiga_/taiga_ [resources].png" id="2_w8kke"]
+[ext_resource type="Texture2D" uid="uid://xmkmqywql5de" path="res://Assets/Characters/star_01.png" id="3_l0ttq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5384"]
+size = Vector2(20, 37.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p8bt"]
+atlas = ExtResource("2_w8kke")
+region = Rect2(112, 120, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu7j6"]
+atlas = ExtResource("2_w8kke")
+region = Rect2(128, 120, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8j7m"]
+atlas = ExtResource("2_w8kke")
+region = Rect2(144, 120, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_001ct"]
+atlas = ExtResource("2_w8kke")
+region = Rect2(160, 120, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8cld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p8bt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu7j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8j7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_001ct")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="wall" type="StaticBody2D"]
+script = ExtResource("1_tx73s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 31
+visibility_layer = 31
+shape = SubResource("RectangleShape2D_d5384")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o8cld")
+autoplay = "default"
+frame_progress = 0.96712
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.185, 0.185)
+color = Color(0.976471, 0.584314, 0.129412, 1)
+shadow_enabled = true
+texture = ExtResource("3_l0ttq")
+texture_scale = 0.4
+
+[node name="Numbers" type="RichTextLabel" parent="."]
+offset_left = 23.0
+offset_top = -6.0
+offset_right = 117.0
+offset_bottom = 9.0
+theme_override_font_sizes/normal_font_size = 9
+text = "Faltan invitaciones!!"
+scroll_active = false

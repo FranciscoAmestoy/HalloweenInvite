@@ -16,20 +16,30 @@ func _ready():
 	sfx_player = $SFXPlayer
 
 func _input(event):
-	# Your existing input handling code for item slots
-	if event.is_action_pressed("Slot_1"):
-		use_item(0)
-		sfx_player.stream = select_sound
-		sfx_player.play()
-		print("Item 1 Used")
-	# Similar for other slots...
+		if event.is_action_pressed("Slot_1"):
+			use_item(0)
+			print("Item 1 Used")
+		elif event.is_action_pressed("Slot_2"):
+			use_item(1)
+		elif event.is_action_pressed("Slot_3"):
+			use_item(2)
+		elif event.is_action_pressed("Slot_4"):
+			use_item(3)
 		
 func use_item(slot_index):
-	if slots[slot_index]:
+	if slot_index < 0 or slot_index >= slots.size():  # Check if the index is valid
+		print("Invalid slot index: ", slot_index)
+		return  # Exit the function if the index is out of bounds
+
+	if slots[slot_index]:  # Check if the slot is not null
 		slots[slot_index].use()
 		slots[slot_index] = null
+		sfx_player.stream = select_sound
+		sfx_player.play()
 		slot_images[slot_index].texture = null  # Clear the texture
 		update_inventory_UI()
+	else:
+		print("No item to use in slot: ", slot_index)  # Optional: log that the slot is empty
 
 func update_inventory_UI():
 	slots = Global.get_inventory()

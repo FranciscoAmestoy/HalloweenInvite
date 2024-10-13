@@ -593,18 +593,6 @@ tile_map_data = PackedByteArray("AAABAEAAAAADAAEAAAACAEAAAAADAAEAAAADAEAAAAADAAE
 tile_set = SubResource("TileSet_7nj8k")
 metadata/_edit_lock_ = true
 
-[node name="player" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("2_qgn54")]
-y_sort_enabled = true
-position = Vector2(63, 114)
-
-[node name="Inventory" parent="TileMapGrass/TileMapTreesFiller2/player" instance=ExtResource("6_u1x46")]
-
-[node name="Camera2D" type="Camera2D" parent="TileMapGrass/TileMapTreesFiller2/player"]
-limit_left = 125
-limit_top = 25
-limit_right = 2044
-limit_bottom = 2044
-
 [node name="MusicKH" type="Area2D" parent="TileMapGrass/TileMapTreesFiller2"]
 script = ExtResource("11_ierla")
 metadata/_edit_lock_ = true
@@ -669,19 +657,47 @@ scale = Vector2(0.11409, 0.107701)
 stream = ExtResource("14_0q737")
 metadata/_edit_lock_ = true
 
-[node name="northern_limit" type="Area2D" parent="TileMapGrass/TileMapTreesFiller2"]
+[node name="northern_limit" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
 z_index = 2
 collision_layer = 15
 collision_mask = 15
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/northern_limit"]
 position = Vector2(482, 12)
 scale = Vector2(53.925, 1)
 shape = SubResource("RectangleShape2D_gx5mf")
-metadata/_edit_lock_ = true
 
-[node name="southern_limit" type="Area2D" parent="TileMapGrass/TileMapTreesFiller2"]
+[node name="northern_limit2" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/northern_limit2"]
+position = Vector2(239, 263)
+scale = Vector2(53.925, 1)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="northern_limit3" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/northern_limit3"]
+position = Vector2(819, 518)
+scale = Vector2(53.925, 1)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="northern_limit4" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/northern_limit4"]
+position = Vector2(819, 518)
+scale = Vector2(53.925, 1)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="southern_limit" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
 z_index = 2
 collision_layer = 15
 collision_mask = 15
@@ -693,7 +709,7 @@ scale = Vector2(53.925, 1)
 shape = SubResource("RectangleShape2D_gx5mf")
 metadata/_edit_lock_ = true
 
-[node name="western_limit" type="Area2D" parent="TileMapGrass/TileMapTreesFiller2"]
+[node name="western_limit" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
 z_index = 2
 position = Vector2(-406, 420)
 rotation = 1.5708
@@ -707,7 +723,189 @@ scale = Vector2(53.925, 1)
 shape = SubResource("RectangleShape2D_gx5mf")
 metadata/_edit_lock_ = true
 
-[node name="eastern_limit" type="Area2D" parent="TileMapGrass/TileMapTreesFiller2"]
+[node name="western_limit2" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+position = Vector2(-406, 420)
+rotation = 1.5708
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/western_limit2"]
+position = Vector2(-309.732, -678.099)
+scale = Vector2(10.09, 0.705)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="western_limit3" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+position = Vector2(-406, 420)
+rotation = 1.5708
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/western_limit3"]
+position = Vector2(-267.003, -933.999)
+scale = Vector2(10.09, 0.705)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="western_limit4" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+position = Vector2(-406, 420)
+rotation = 1.5708
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/western_limit4"]
+position = Vector2(-308.004, -1190)
+scale = Vector2(10.09, 0.705)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="western_limit5" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+position = Vector2(-406, 420)
+rotation = 1.5708
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/western_limit5"]
+position = Vector2(-69.0043, -1190)
+scale = Vector2(11.325, 0.565)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="western_limit6" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+position = Vector2(-406, 420)
+rotation = 1.5708
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/western_limit6"]
+position = Vector2(-5.00337, -934)
+scale = Vector2(10.09, 0.705)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="western_limit7" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+position = Vector2(-406, 420)
+rotation = 1.5708
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/western_limit7"]
+position = Vector2(-53.0024, -678)
+scale = Vector2(10.09, 0.705)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="western_limit8" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+position = Vector2(-406, 420)
+rotation = 1.5708
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/western_limit8"]
+position = Vector2(506.996, -1190)
+scale = Vector2(10.09, 0.705)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="western_limit9" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+position = Vector2(-406, 420)
+rotation = 1.5708
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/western_limit9"]
+position = Vector2(288.808, -677.856)
+scale = Vector2(7.145, 0.705)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="western_limit10" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+position = Vector2(-406, 420)
+rotation = 1.5708
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/western_limit10"]
+position = Vector2(122.998, -679)
+scale = Vector2(5.245, 0.705)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="western_limit11" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+position = Vector2(-406, 420)
+rotation = 1.5708
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/western_limit11"]
+position = Vector2(224.997, -934.001)
+scale = Vector2(7.15, 0.705)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="western_limit12" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+position = Vector2(-406, 420)
+rotation = 1.5708
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/western_limit12"]
+position = Vector2(303.996, -1190)
+scale = Vector2(7.15, 0.705)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="western_limit13" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+position = Vector2(-406, 420)
+rotation = 1.5708
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/western_limit13"]
+position = Vector2(132.996, -1190)
+scale = Vector2(5.94, 0.705)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="western_limit14" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+position = Vector2(-406, 420)
+rotation = 1.5708
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/western_limit14"]
+position = Vector2(396.997, -934.001)
+scale = Vector2(6.755, 0.56)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="western_limit15" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
+z_index = 2
+position = Vector2(-406, 420)
+rotation = 1.5708
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapGrass/TileMapTreesFiller2/western_limit15"]
+position = Vector2(561.997, -934.001)
+scale = Vector2(5.94, 0.705)
+shape = SubResource("RectangleShape2D_gx5mf")
+
+[node name="eastern_limit" type="StaticBody2D" parent="TileMapGrass/TileMapTreesFiller2"]
 z_index = 2
 position = Vector2(-406, 420)
 rotation = 1.5708
@@ -777,6 +975,7 @@ metadata/_edit_lock_ = true
 
 [node name="prop_dharma" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("26_qvxfs")]
 position = Vector2(125, 966)
+metadata/_edit_lock_ = true
 
 [node name="prop_fran" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("27_hcj3x")]
 position = Vector2(129, 939)
@@ -902,81 +1101,107 @@ position = Vector2(303, 756)
 
 [node name="magpie2" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
 position = Vector2(210, 471)
+metadata/_edit_lock_ = true
 
 [node name="magpie3" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
 position = Vector2(397, 624)
+metadata/_edit_lock_ = true
 
 [node name="magpie4" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
 position = Vector2(641, 854)
+metadata/_edit_lock_ = true
 
 [node name="magpie5" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("5_31pxf")]
 position = Vector2(641, 854)
+metadata/_edit_lock_ = true
 
 [node name="ghost2" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("15_od4e0")]
 position = Vector2(583, 216)
+metadata/_edit_lock_ = true
 
 [node name="ghost3" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("15_od4e0")]
 position = Vector2(873, 110)
+metadata/_edit_lock_ = true
 
 [node name="ghost4" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("15_od4e0")]
 position = Vector2(689, 399)
+metadata/_edit_lock_ = true
 
 [node name="ghost5" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("15_od4e0")]
 position = Vector2(653, 578)
+metadata/_edit_lock_ = true
 
 [node name="ghost6" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("15_od4e0")]
 position = Vector2(891, 861)
+metadata/_edit_lock_ = true
 
 [node name="dracula2" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("23_7bn8j")]
 position = Vector2(724, 174)
+metadata/_edit_lock_ = true
 
 [node name="dracula3" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("23_7bn8j")]
 position = Vector2(942, 214)
+metadata/_edit_lock_ = true
 
 [node name="dracula4" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("23_7bn8j")]
 position = Vector2(882, 417)
+metadata/_edit_lock_ = true
 
 [node name="dracula5" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("23_7bn8j")]
 position = Vector2(170, 591)
+metadata/_edit_lock_ = true
 
 [node name="dracula6" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("23_7bn8j")]
 position = Vector2(861, 642)
+metadata/_edit_lock_ = true
 
 [node name="dracula7" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("23_7bn8j")]
 position = Vector2(679, 964)
+metadata/_edit_lock_ = true
 
 [node name="pumpkin2" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("21_yp64d")]
 position = Vector2(321, 188)
+metadata/_edit_lock_ = true
 
 [node name="pumpkin3" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("21_yp64d")]
 position = Vector2(840, 214)
+metadata/_edit_lock_ = true
 
 [node name="pumpkin4" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("21_yp64d")]
 position = Vector2(986, 375)
+metadata/_edit_lock_ = true
 
 [node name="pumpkin5" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("21_yp64d")]
 position = Vector2(187, 714)
+metadata/_edit_lock_ = true
 
 [node name="pumpkin6" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("21_yp64d")]
 position = Vector2(429, 728)
+metadata/_edit_lock_ = true
 
 [node name="pumpkin7" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("21_yp64d")]
 position = Vector2(636, 714)
+metadata/_edit_lock_ = true
 
 [node name="pumpkin8" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("21_yp64d")]
 position = Vector2(936, 730)
+metadata/_edit_lock_ = true
 
 [node name="wolf2" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("19_7flre")]
 position = Vector2(611, 392)
+metadata/_edit_lock_ = true
 
 [node name="wolf3" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("19_7flre")]
 position = Vector2(454, 436)
+metadata/_edit_lock_ = true
 
 [node name="wolf4" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("19_7flre")]
 position = Vector2(725, 881)
+metadata/_edit_lock_ = true
 
 [node name="wolf5" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("19_7flre")]
 position = Vector2(725, 881)
+metadata/_edit_lock_ = true
 
 [node name="Scrolls2" type="RichTextLabel" parent="TileMapGrass/TileMapTreesFiller2"]
 offset_left = 39.0
@@ -989,6 +1214,7 @@ text = "Lo conseguiste!
 En el castillo está
 toda la info :)"
 scroll_active = false
+metadata/_edit_lock_ = true
 
 [node name="Scrolls3" type="RichTextLabel" parent="TileMapGrass/TileMapTreesFiller2"]
 offset_left = 144.0
@@ -999,194 +1225,270 @@ theme_override_font_sizes/normal_font_size = 9
 text = "↑↑↑
 "
 scroll_active = false
+metadata/_edit_lock_ = true
 
 [node name="stick" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("39_adpoq")]
 position = Vector2(495, 154)
+metadata/_edit_lock_ = true
 
 [node name="stick2" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("39_adpoq")]
 position = Vector2(641, 482)
+metadata/_edit_lock_ = true
 
 [node name="stick3" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("39_adpoq")]
 position = Vector2(784, 809)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin11" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("25_qkol5")]
 position = Vector2(731, 608)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin12" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("41_iocf2")]
 position = Vector2(237, 188)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin13" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("41_iocf2")]
 position = Vector2(607, 73)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin14" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("41_iocf2")]
 position = Vector2(891, 56)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin15" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("41_iocf2")]
 position = Vector2(901, 345)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin16" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("41_iocf2")]
 position = Vector2(770, 461)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin17" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("41_iocf2")]
 position = Vector2(540, 281)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin18" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("41_iocf2")]
 position = Vector2(260, 453)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin19" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("41_iocf2")]
 position = Vector2(299, 662)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin20" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("41_iocf2")]
 position = Vector2(772, 660)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin21" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("41_iocf2")]
 position = Vector2(819, 885)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin22" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("41_iocf2")]
 position = Vector2(558, 935)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin23" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("41_iocf2")]
 position = Vector2(87, 938)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("25_qkol5")]
 position = Vector2(87, 203)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin2" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("25_qkol5")]
 position = Vector2(456, 61)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin3" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("25_qkol5")]
 position = Vector2(984, 249)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin4" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("25_qkol5")]
 position = Vector2(696, 333)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin5" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("25_qkol5")]
 position = Vector2(416, 495)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin6" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("25_qkol5")]
 position = Vector2(45, 320)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin7" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("25_qkol5")]
 position = Vector2(98, 711)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin8" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("25_qkol5")]
 position = Vector2(323, 557)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin9" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("25_qkol5")]
 position = Vector2(514, 538)
+metadata/_edit_lock_ = true
 
 [node name="prop_pumpkin10" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("25_qkol5")]
 position = Vector2(1014, 799)
+metadata/_edit_lock_ = true
 
 [node name="stick4" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(245, 44)
+metadata/_edit_lock_ = true
 
 [node name="stick5" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(306, 41)
+metadata/_edit_lock_ = true
 
 [node name="stick6" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(488, 216)
+metadata/_edit_lock_ = true
 
 [node name="stick7" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(502, 204)
+metadata/_edit_lock_ = true
 
 [node name="stick8" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(636, 69)
+metadata/_edit_lock_ = true
 
 [node name="stick9" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(752, 56)
+metadata/_edit_lock_ = true
 
 [node name="stick10" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(846, 49)
+metadata/_edit_lock_ = true
 
 [node name="stick11" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(984, 247)
+metadata/_edit_lock_ = true
 
 [node name="stick12" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(775, 251)
+metadata/_edit_lock_ = true
 
 [node name="stick13" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(952, 344)
+metadata/_edit_lock_ = true
 
 [node name="stick14" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(804, 331)
+metadata/_edit_lock_ = true
 
 [node name="stick15" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(808, 331)
+metadata/_edit_lock_ = true
 
 [node name="stick16" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(806, 333)
+metadata/_edit_lock_ = true
 
 [node name="stick17" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(741, 376)
+metadata/_edit_lock_ = true
 
 [node name="stick18" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(387, 302)
+metadata/_edit_lock_ = true
 
 [node name="stick19" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(385, 444)
+metadata/_edit_lock_ = true
 
 [node name="stick20" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(167, 289)
+metadata/_edit_lock_ = true
 
 [node name="stick21" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(118, 480)
+metadata/_edit_lock_ = true
 
 [node name="stick22" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(260, 591)
+metadata/_edit_lock_ = true
 
 [node name="stick23" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(580, 678)
+metadata/_edit_lock_ = true
 
 [node name="stick24" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(704, 600)
+metadata/_edit_lock_ = true
 
 [node name="stick25" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(698, 616)
+metadata/_edit_lock_ = true
 
 [node name="stick26" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(904, 665)
+metadata/_edit_lock_ = true
 
 [node name="stick27" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(963, 749)
+metadata/_edit_lock_ = true
 
 [node name="stick28" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(858, 830)
+metadata/_edit_lock_ = true
 
 [node name="stick29" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(956, 912)
+metadata/_edit_lock_ = true
 
 [node name="stick30" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(447, 889)
+metadata/_edit_lock_ = true
 
 [node name="stick31" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(424, 936)
+metadata/_edit_lock_ = true
 
 [node name="stick32" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(296, 888)
+metadata/_edit_lock_ = true
 
 [node name="stick33" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(127, 892)
+metadata/_edit_lock_ = true
 
 [node name="stick34" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(175, 892)
+metadata/_edit_lock_ = true
 
 [node name="stick35" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(209, 892)
+metadata/_edit_lock_ = true
 
 [node name="stick36" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("24_l2lip")]
 position = Vector2(93, 892)
+metadata/_edit_lock_ = true
+
+[node name="player" parent="TileMapGrass/TileMapTreesFiller2" instance=ExtResource("2_qgn54")]
+y_sort_enabled = true
+position = Vector2(63, 114)
+metadata/_edit_lock_ = true
+
+[node name="Inventory" parent="TileMapGrass/TileMapTreesFiller2/player" instance=ExtResource("6_u1x46")]
+
+[node name="Camera2D" type="Camera2D" parent="TileMapGrass/TileMapTreesFiller2/player"]
+limit_left = 125
+limit_top = 25
+limit_right = 1134
+limit_bottom = 1134
 
 [node name="cave" type="Area2D" parent="."]
 position = Vector2(257, 967)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cave"]
 position = Vector2(0.5, -8.5)
 shape = SubResource("RectangleShape2D_q6pyt")
+metadata/_edit_lock_ = true
 
 [node name="day_night" parent="." instance=ExtResource("10_jm3vr")]
 position = Vector2(38, 105)
 color = Color(0.0901961, 0.345098, 0.388235, 1)
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="TileMapGrass/TileMapTreesFiller2/MusicKH" to="TileMapGrass/TileMapTreesFiller2/MusicKH" method="_on_body_entered"]
 [connection signal="body_exited" from="TileMapGrass/TileMapTreesFiller2/MusicKH" to="TileMapGrass/TileMapTreesFiller2/MusicKH" method="_on_body_exited"]

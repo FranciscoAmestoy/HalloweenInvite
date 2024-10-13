@@ -9,7 +9,7 @@ func _ready():
 	# Check the state of Global.letter when the scene is loaded
 	update_wall_visibility()
 
-func _process(delta):
+func _process(_delta):
 	# Continuously check if the wall should be visible/collidable
 	update_wall_visibility()
 

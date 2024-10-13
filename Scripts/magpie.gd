@@ -109,8 +109,6 @@ func pick_random_direction():
 
 
 func check_boundaries():
-	# Get the enemy's current position
-	var position = global_position
 
 	# Check if the enemy is near the edges of the room and reverse direction if needed
 	if position.x <= min_position.x or position.x >= max_position.x:

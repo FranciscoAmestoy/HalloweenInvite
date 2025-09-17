@@ -25,17 +25,19 @@ anchor_left = 0.216
 anchor_top = 0.603
 anchor_right = 0.367
 anchor_bottom = 0.868
-offset_left = -0.720001
-offset_top = -4.24005
-offset_right = 0.359985
-offset_bottom = -0.440063
+offset_left = -16.72
+offset_top = -4.23999
+offset_right = 8.35999
+offset_bottom = 30.5601
 texture = ExtResource("3_gni7o")
 
 [node name="Yan2" type="TextureButton" parent="TextureRect/Yan"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.013
+anchor_left = -0.177778
+anchor_top = -0.0747664
+anchor_right = 1.41587
+anchor_bottom = 1.239
 offset_right = 178.0
 offset_bottom = 193.282
 scale = Vector2(0.62, 0.6)
@@ -51,17 +53,17 @@ anchor_right = 0.367
 anchor_bottom = 0.868
 offset_left = 417.28
 offset_top = -4.24005
-offset_right = 454.36
-offset_bottom = -0.440063
+offset_right = 462.36
+offset_bottom = 34.56
 texture = ExtResource("4_b8mnw")
 
 [node name="Lore2" type="TextureButton" parent="TextureRect/Lore"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.000991286
-anchor_top = -0.0146106
-anchor_right = 1.01299
-anchor_bottom = 1.01139
+anchor_left = -0.164179
+anchor_top = -0.0861662
+anchor_right = 1.325
+anchor_bottom = 1.26594
 offset_top = 0.00400019
 offset_right = 200.124
 offset_bottom = 195.568
@@ -78,17 +80,17 @@ anchor_right = 0.367
 anchor_bottom = 0.868
 offset_left = 859.28
 offset_top = -8.24005
-offset_right = 868.36
-offset_bottom = -0.440063
+offset_right = 876.36
+offset_bottom = 38.56
 texture = ExtResource("5_un3pq")
 
 [node name="Agus2" type="TextureButton" parent="TextureRect/Agus"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0270243
-anchor_top = 0.0275007
-anchor_right = 0.956976
-anchor_bottom = 1.0415
+anchor_left = -0.178824
+anchor_top = -0.0963102
+anchor_right = 1.05031
+anchor_bottom = 1.23103
 offset_left = -0.100914
 offset_top = 0.0712891
 offset_right = 175.555
@@ -108,11 +110,11 @@ stream = ExtResource("3_ep2md")
 autoplay = true
 
 [connection signal="mouse_entered" from="TextureRect/Yan" to="." method="_on_lore_focus_entered"]
-[connection signal="mouse_entered" from="TextureRect/Yan" to="." method="_on_agus_focus_entered"]
 [connection signal="mouse_entered" from="TextureRect/Yan" to="." method="_on_yan_focus_entered"]
+[connection signal="mouse_entered" from="TextureRect/Yan" to="." method="_on_agus_focus_entered"]
 [connection signal="mouse_exited" from="TextureRect/Yan" to="." method="_on_lore_focus_exited"]
-[connection signal="mouse_exited" from="TextureRect/Yan" to="." method="_on_yan_focus_exited"]
 [connection signal="mouse_exited" from="TextureRect/Yan" to="." method="_on_agus_focus_exited"]
+[connection signal="mouse_exited" from="TextureRect/Yan" to="." method="_on_yan_focus_exited"]
 [connection signal="mouse_entered" from="TextureRect/Yan/Yan2" to="." method="_on_yan_focus_entered"]
 [connection signal="mouse_exited" from="TextureRect/Yan/Yan2" to="." method="_on_yan_focus_exited"]
 [connection signal="pressed" from="TextureRect/Yan/Yan2" to="." method="_on_yan_pressed"]

@@ -1,118 +1,55 @@
-# \# 🎃 Halloween Invite RPG Demo
+# Halloween Invite RPG Demo 🎃
 
-# 
+A small **Halloween-themed RPG demo** made with [Godot Engine](https://godotengine.org/).  
+Originally designed as an interactive **invitation to a Halloween party** for friends.  
 
-# This is a \*\*demo project\*\* created to learn how to use \[Godot Engine](https://godotengine.org/) by building a small \*\*Halloween-themed RPG\*\*.  
+This was a **learning project**, exploring how to build a simple RPG with exploration, combat, and atmosphere.  
+It is no longer under development, but remains available as a demo.
 
-# It was designed as a fun, interactive \*\*invitation to a Halloween party\*\* for my friends. 🕸️
+---
 
-# 
+## Features
 
-# ---
+- 🌍 World exploration  
+- 🤖 AI-controlled opponents  
+- ⚔️ Basic combat system  
+- ❤️ Health bar and consumables  
+- 🌧️ Weather & climate effects  
+- 💡 Dynamic lighting  
+- 🎃 Collectibles  
+- ✅ Objective validation  
+- 🎵 Transitioning music  
+- 🪞 Sub-screens / UI states  
 
-# 
+---
 
-# \## ✨ Features
+## Known Bugs
 
-# 
+- Colliding with props can sometimes get the player stuck → use **Alt+F4** to restart.  
+- AI movement is erratic (left in because it’s funny).  
+- No game-over screen (this is a demo, not a full game).  
 
-# This project explores several Godot concepts and mechanics, including:
+---
 
-# 
+## Credits
 
-# \- 🌍 \*\*World exploration\*\*
+This project was based on the YouTube series by **[Outback Nerd](https://www.youtube.com/@OutbackNerd)**:  
+▶️ [*Create Your Own 2D Top-Down RPG Now!*](https://www.youtube.com/playlist?list=PL4vjw0qHwNZLTKTr4auM9aBm3-PASfDny)
 
-# \- 🤖 \*\*AI-controlled opponents\*\*
+---
 
-# \- ⚔️ \*\*Combat system\*\*
+## How to Play
 
-# \- ❤️ \*\*Health bar and consumables\*\*
+1. Download the latest release from the [Releases page](../../releases).  
+2. Extract the `.zip`.  
+3. Run `HalloweenInvite.exe`.  
 
-# \- 🌧️ \*\*Climate effects\*\*
+> ℹ️ Windows may show a SmartScreen warning because the file is unsigned.  
+> Click **More info → Run anyway** to play.
 
-# \- 💡 \*\*Dynamic lighting\*\*
+---
 
-# \- 🎃 \*\*Collectibles\*\*
+## Disclaimer
 
-# \- ✅ \*\*Objective validation\*\*
-
-# \- 🎵 \*\*Music transitions\*\*
-
-# \- 🪞 \*\*Sub-screens / UI states\*\*
-
-# 
-
-# > ⚠️ This project was built as a \*\*learning exercise\*\* and is \*\*not under active development\*\*.  
-
-# > It fulfills the original requirements for the party invite but is not a full game.
-
-# 
-
-# ---
-
-# 
-
-# \## 🐞 Known Bugs
-
-# 
-
-# \- 🔸 Sometimes colliding with props causes the player to get stuck.  
-
-# &nbsp; 👉 Workaround: Press \*\*Alt + F4\*\* and restart.
-
-# \- 🔸 AI movement is erratic.  
-
-# &nbsp; 👉 Not fixed because it turned out to be \*hilarious as-is\*.
-
-# \- 🔸 No game-over screen.  
-
-# &nbsp; 👉 Missing on purpose, since this is only a demo.
-
-# 
-
-# ---
-
-# 
-
-# \## 🎥 Based On
-
-# 
-
-# This project was inspired and guided by the \*\*\[Outback Nerd](https://www.youtube.com/@OutbackNerd)\*\* YouTube series:
-
-# 
-
-# 📺 \[Create Your Own 2D Top-Down RPG Now!](https://www.youtube.com/playlist?list=PL4vjw0qHwNZLTKTr4auM9aBm3-PASfDny)
-
-# 
-
-# ---
-
-# 
-
-# \## 🚀 How to Play
-
-# 
-
-# 1\. Download the latest release from the \[📦 Releases page](../../releases).
-
-# 2\. Run the `HalloweenInvite.exe` file.  
-
-# &nbsp;  \*(Windows SmartScreen may warn you since the file is unsigned — click \*\*More info → Run anyway\*\* to proceed.)\*
-
-# 
-
-# ---
-
-# 
-
-# \## 👻 Disclaimer
-
-# 
-
-# This project is provided \*\*as-is\*\*, purely for educational and entertainment purposes.  
-
-# Expect bugs, missing features, and Halloween vibes. 🦇
-
-
-
+This project is shared **as-is** for educational and entertainment purposes.  
+Expect bugs, missing features, and Halloween vibes. 🦇

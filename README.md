@@ -41,8 +41,7 @@ This project was based on the YouTube series by **[Outback Nerd](https://www.you
 ## How to Play
 
 1. Download the latest release from the [Releases page](../../releases).  
-2. Extract the `.zip`.  
-3. Run `HalloweenInvite.exe`.  
+2. Run `HalloweenInvite.exe`.  
 
 > ℹ️ Windows may show a SmartScreen warning because the file is unsigned.  
 > Click **More info → Run anyway** to play.
